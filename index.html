@@ -674,8 +674,13 @@ function mobCh(ch) {
 }
 if(window.innerWidth<=640){
   document.getElementById('mob-nav').style.display='flex';
-  document.querySelector('.input-area').style.paddingBottom='80px';
-document.querySelector('.msgs').style.paddingBottom='80px';
+  document.querySelector('.msgs').style.paddingBottom='80px';
+  document.querySelector('.input-area').style.position='fixed';
+  document.querySelector('.input-area').style.bottom='58px';
+  document.querySelector('.input-area').style.left='0';
+  document.querySelector('.input-area').style.right='0';
+  document.querySelector('.input-area').style.zIndex='50';
+  document.querySelector('.input-area').style.background='#0d0d10';
 }
 // ── BOOT ──
 (function() {
