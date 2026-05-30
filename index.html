@@ -258,6 +258,15 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
 .setup-btn{width:100%;padding:12px;background:var(--accent);border:none;border-radius:var(--r);color:#fff;font-family:var(--font);font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;}
 .setup-btn:hover{background:var(--accent-hover);}
 .setup-note{font-size:11px;color:var(--text3);text-align:center;line-height:1.6;}
+  /* ─── MOBILE ─── */
+@media(max-width:640px){
+  .login-card{width:calc(100vw - 32px);padding:32px 24px;border-radius:16px;}
+  .setup-card{width:calc(100vw - 32px);padding:32px 24px;border-radius:16px;}
+  .msg-body{max-width:82%;}
+  .input-hint{display:none;}
+  .sidebar{display:none;}
+  .ch-desc{display:none;}
+}
 </style>
 </head>
 <body>
