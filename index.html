@@ -400,7 +400,21 @@ html,body{height:100%;overflow:hidden;font-family:var(--font);background:var(--b
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div id="mob-nav" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#16161a;border-top:1px solid rgba(255,255,255,0.13);z-index:100;justify-content:space-around;align-items:center;padding:10px 0 14px;">
+  <button onclick="mobCh('general')" id="mn-general" style="display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;color:#7c6fcd;font-family:'DM Sans',sans-serif;font-size:10px;cursor:pointer;min-width:60px;">
+    <span style="font-size:20px;">💬</span>general
+  </button>
+  <button onclick="mobCh('updates')" id="mn-updates" style="display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;color:#4a4a55;font-family:'DM Sans',sans-serif;font-size:10px;cursor:pointer;min-width:60px;">
+    <span style="font-size:20px;">📢</span>updates
+  </button>
+  <button onclick="mobCh('tasks')" id="mn-tasks" style="display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;color:#4a4a55;font-family:'DM Sans',sans-serif;font-size:10px;cursor:pointer;min-width:60px;">
+    <span style="font-size:20px;">✅</span>tasks
+  </button>
+  <button onclick="mobCh('random')" id="mn-random" style="display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;color:#4a4a55;font-family:'DM Sans',sans-serif;font-size:10px;cursor:pointer;min-width:60px;">
+    <span style="font-size:20px;">🎲</span>random
+  </button>
+</div>
+  <div class="toast" id="toast"></div>
 
 <script>
 // ── CONFIG ──
@@ -652,6 +666,16 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
+  // ── MOBILE ──
+function mobCh(ch) {
+  switchChannel(ch, document.getElementById('ch-'+ch));
+  document.querySelectorAll('#mob-nav button').forEach(b => b.style.color='#4a4a55');
+  document.getElementById('mn-'+ch).style.color='#7c6fcd';
+}
+if(window.innerWidth<=640){
+  document.getElementById('mob-nav').style.display='flex';
+  document.querySelector('.input-area').style.paddingBottom='80px';
+}
 // ── BOOT ──
 (function() {
   const url = localStorage.getItem('sb_url');
